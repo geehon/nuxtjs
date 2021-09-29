@@ -33,7 +33,9 @@ export default {
   /*
    ** Nuxt.js modules
    */
-  modules: [],
+  modules: [
+    '@nuxtjs/axios'
+  ],
   /*
    ** Build configuration
    */
@@ -43,4 +45,8 @@ export default {
      */
     extend(config, ctx) {},
   },
+  /*
+     ** Some modules are only imported during development and build time.
+     */
+  buildModules: ['@nuxtjs/tailwindcss']
 };

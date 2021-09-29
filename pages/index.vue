@@ -1,72 +1,47 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        Hello World
-      </h1>
-      <h2 class="subtitle">
-        My astonishing Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div class="p-4">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4">
+      <img
+        class="w-full"
+        src="@/assets/card-top.jpg"
+        alt="Sunset in the mountains"
+      />
+      <div class="px-6 py-4 pb-2">
+        <div class="font-bold text-xl mb-1">服务资费详情</div>
+        <div class="flex flex-col py-1">
+          <div class="flex flex-row">
+            <p class="text-gray-500 text-sm font-sans font-semibold">余额: {{ -account.balance }} $</p>
+          </div>
+
+          <div class="flex flex-row py-1">
+            <p class="text-gray-500 text-sm font-sans font-semibold">未结: {{ account.pending_charges }} $</p>
+          </div>
+
+          <div class="flex flex-row">
+            <p class="text-gray-500 text-sm font-sans font-semibold">最后充值: {{ -account.last_payment_amount }} $</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-6 pb-4 text-gray-600 text-xs">
+        <span>更新于：{{ (new Date()).toLocaleString() }}</span>
       </div>
     </div>
   </div>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
-
-export default {
-  components: {
-    Logo
-  }
-}
-</script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style lang="postcss" scoped>
 </style>
+<script>
+export default {
+  async asyncData({ $axios }) {
+    const { account } = await $axios.$get("https://blog.geehon.top/api/v0/monitor");
+    // console.log()
+    return { account };
+  },
+  methods: {},
+  data() {
+    return { };
+  },
+};
+</script>
