@@ -1,6 +1,6 @@
 <template>
   <div class="p-4">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 w-screen">
       <img
         class="w-full"
         src="https://cdn.jsdelivr.net/gh/geehon/blogImgBed/img/card-top.jpg"
@@ -22,7 +22,7 @@
       </div>
 
       <div class="px-6 pb-4 text-gray-500 text-xs">
-        <span>更新于：{{ (new Date()).toLocaleString() }}</span>
+        <span>更新于：{{ (new Date()).toLocaleString('en-GB') }}</span>
       </div>
     </div>
   </div>
@@ -41,5 +41,11 @@ export default {
   data() {
     return { };
   },
+
+  head(){
+    return{
+      title:'服务资费'
+    }
+  }
 };
 </script>
