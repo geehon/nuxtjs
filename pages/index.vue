@@ -1,6 +1,6 @@
 <template>
   <div class="p-4">
-    <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 w-screen">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4 w-80">
       <img
         class="w-full"
         src="https://cdn.jsdelivr.net/gh/geehon/blogImgBed/img/card-top.jpg"
