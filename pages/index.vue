@@ -7,23 +7,21 @@
         alt="Sunset in the mountains"
       />
       <div class="px-6 py-4 pb-2">
-        <div class="font-bold text-xl mb-1">服务资费详情</div>
-        <div class="flex flex-col py-1">
-          <div class="flex flex-row">
-            <p class="text-gray-500 text-sm font-sans font-semibold">余额: {{ -account.balance }} $</p>
+        <div class="font-bold text-xl mb-1 text-gray-700">服务资费详情</div>
+        <div class="flex flex-col py-1 text-gray-500 text-sm font-sans font-semibold">
+          <div class="flex flex-row ">
+            <p>余额: {{ -account.balance }} $</p>
           </div>
-
           <div class="flex flex-row py-1">
-            <p class="text-gray-500 text-sm font-sans font-semibold">未结: {{ account.pending_charges }} $</p>
+            <p>未结: {{ account.pending_charges }} $</p>
           </div>
-
           <div class="flex flex-row">
-            <p class="text-gray-500 text-sm font-sans font-semibold">最后充值: {{ -account.last_payment_amount }} $</p>
+            <p>最后充值: {{ -account.last_payment_amount }} $</p>
           </div>
         </div>
       </div>
 
-      <div class="px-6 pb-4 text-gray-600 text-xs">
+      <div class="px-6 pb-4 text-gray-500 text-xs">
         <span>更新于：{{ (new Date()).toLocaleString() }}</span>
       </div>
     </div>
