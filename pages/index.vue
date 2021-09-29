@@ -3,7 +3,7 @@
     <div class="max-w-sm rounded overflow-hidden shadow-lg mb-4">
       <img
         class="w-full"
-        src="@/assets/card-top.jpg"
+        src="https://cdn.jsdelivr.net/gh/geehon/blogImgBed/img/card-top.jpg"
         alt="Sunset in the mountains"
       />
       <div class="px-6 py-4 pb-2">
