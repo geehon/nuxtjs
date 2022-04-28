@@ -10,19 +10,18 @@
         <div class="font-bold text-xl mb-1 text-gray-700">服务资费详情</div>
         <div class="flex flex-col py-1 text-gray-500 text-sm font-sans font-semibold">
           <div class="flex flex-row ">
-            <p>余额: {{ -account.balance }} $</p>
+            <p>可用: {{ -balance }}</p>
           </div>
           <div class="flex flex-row py-1">
-            <p>未结: {{ account.pending_charges }} $</p>
+            <p>未结: {{ -pending_charges }}</p>
           </div>
           <div class="flex flex-row">
-            <p>最后充值: {{ -account.last_payment_amount }} $</p>
+            <p>余额: {{ computedBalance }}</p>
           </div>
         </div>
       </div>
-
       <div class="px-6 pb-4 text-gray-500 text-xs">
-        <span>更新于：{{ (new Date()).toLocaleString('en-GB') }}</span>
+        <span>更新于：{{ updated_at }}</span>
       </div>
     </div>
   </div>
@@ -33,19 +32,24 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const { account } = await $axios.$get("https://blog.geehon.top/api/v0/monitor");
-    // console.log()
-    return { account };
+    const { balance, pending_charges, updated_at } = await $axios.$get(
+      "https://www.brownapp.tk/api/v1/vpsInfo"
+    );
+    return { balance, pending_charges, updated_at };
   },
   methods: {},
   data() {
-    return { };
+    return {};
   },
-
-  head(){
-    return{
-      title:'服务资费'
+  computed:{
+    computedBalance:function(){
+      return Math.floor((-this.balance-this.pending_charges) * 100) / 100;
     }
-  }
+  },
+  head() {
+    return {
+      title: "服务资费",
+    };
+  },
 };
 </script>
